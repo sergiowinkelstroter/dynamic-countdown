@@ -13,7 +13,7 @@ export const Home = () => {
 
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const eventObject = {
@@ -25,8 +25,10 @@ export const Home = () => {
 
     setEvent(eventObject);
 
+    console.log(eventObject);
+
     navigate("/countdown");
-  }
+  };
 
   return (
     <div className="home">
@@ -49,6 +51,7 @@ export const Home = () => {
             type="date"
             name="date"
             onChange={(e) => setDate(e.target.value)}
+            value={date}
             required
           />
         </label>
@@ -58,6 +61,7 @@ export const Home = () => {
             type="text"
             placeholder="Insira a URL da imagem"
             onChange={(e) => setImage(e.target.value)}
+            value={image}
           />
         </label>
         <label>
@@ -67,6 +71,7 @@ export const Home = () => {
             name="color"
             required
             onChange={(e) => setColor(e.target.value)}
+            value={color}
           />
         </label>
         <input type="submit" value="Criar" />

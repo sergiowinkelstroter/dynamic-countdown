@@ -20,7 +20,8 @@ export const Countdown = () => {
 
   if (event.color) eventColor = event.color;
 
-  const [day, hour, minute, second] = useCountdown(event.date);
+  const [day, hour, minute, second] = useCountdown(`${event.date} 00:00:00`);
+
   return (
     <>
       <Title title={event.title} eventColor={eventColor} />
