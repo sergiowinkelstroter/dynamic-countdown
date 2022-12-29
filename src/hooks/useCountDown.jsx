@@ -23,10 +23,26 @@ const useCountdown = (date) => {
     const minuteNumber = Math.floor((gap % hour) / minute);
     const secondNumber = Math.floor((gap % minute) / second);
 
-    setDay(dayNumber);
-    setHour(hourNumber);
-    setMinute(minuteNumber);
-    setSecond(secondNumber);
+    if (dayNumber <= 9) {
+      setDay(`0${dayNumber}`);
+    } else {
+      setDay(dayNumber);
+    }
+    if (hourNumber <= 9) {
+      setHour(`0${hourNumber}`);
+    } else {
+      setHour(hourNumber);
+    }
+    if (minuteNumber <= 9) {
+      setMinute(`0${minuteNumber}`);
+    } else {
+      setMinute(minuteNumber);
+    }
+    if (secondNumber <= 9) {
+      setSecond(`0${secondNumber}`);
+    } else {
+      setSecond(secondNumber);
+    }
   };
 
   setInterval(countdown, 1000);
